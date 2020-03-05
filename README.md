@@ -1,2 +1,2 @@
 # simple-weather-app
-Simple Weather App with VS
+### Build a Simple Weather App with Vanilla JS
