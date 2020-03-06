@@ -8,9 +8,9 @@ let date = document.querySelector(".date");
 let temp = document.querySelector(".temp");
 let desc = document.querySelector(".desc");
 let hum = document.querySelector(".hum");
-let pressure = document.querySelector(".pressure");
-let ozone = document.querySelector(".ozone");
-let icon = document.querySelector(".image");
+let pres = document.querySelector(".pressure");
+let ozon = document.querySelector(".ozone");
+let icons = document.querySelector(".image");
 
 // two more variables,
 
@@ -60,12 +60,24 @@ class Weather {
         .then(res => res.json())
         .then(res => {
           console.log(res);
+
+          const {
+            temparature,
+            summary,
+            humidity,
+             pressure,
+             icon,
+             ozone
+           } = res.currently;
           date.innerHTML += new Date().toDateString();
-          temp.innerHTML += res.currently.temparature;
-          desc.innerHTML += res.currently.summary;
-          hum.innerHTML += res.currently.humidity;
-          pressure.innerHTML += res.currently.pressure;
-          ozone.innerHTML += res.currently.ozone;
+          temp.innerHTML += `${Math.floor(
+            temparature
+          )}
+          <i class="wi wi-fahrenheit"></i>`;
+          desc.innerHTML += summary;
+          hum.innerHTML += Math.round(humidity) * 100 + "%";
+          press.innerHTML += pressure;
+          ozon.innerHTML += ozone;
           // adding some interaction
           //show that icon  // download the weather icon css file and put it into your CSS directory
           // also put the font file in the parent directory of the project folder
@@ -73,7 +85,7 @@ class Weather {
           // the icon for our weather condition
 
   // now call that method here and see the magic
-    this.getIcon(res.currently.icon, icon);
+    this.getIcon(icon, icons);
      })
         .catch(err => console.log(err)); //check in the url
         // JSON data lets put them in our html filter
