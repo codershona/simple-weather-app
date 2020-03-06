@@ -27,7 +27,7 @@ background: linear-gradient(to right, #155799, #159957); /* W3C, IE 10+/ Edge, F
 }
 
 .card {
-  display: none;
+  /* display: none; */
   margin: 0 auto;
   width: 30rem;
   padding-bottom: 10px;
