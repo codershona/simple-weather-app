@@ -58,8 +58,17 @@ class Weather {
         `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${key}/${res.coords.latitude},${res.coords.longitude}`
       )
         .then(res => res.json())
-        .then(res => console.log(res))
-        .catch(err => console.log(err)); //
+        .then(res => {console.log(res)
+          date.innerHTML += new Date().toDateString()
+          temp.innerHTML += res.currently.temparature
+          desc.innerHTML += res.currently.summary
+          hum.innerHTML += res.currently.humidity
+          pressure.innerHTML += res.currently.pressure
+          ozane.innerHTML += res.currently.ozane 
+        })
+        .catch(err => console.log(err)); //check in the url
+        // JSON data lets put them in our html filter
+
      });
   } else {
     alert("Sorry your browser does not support navigation. Please Update it.");
