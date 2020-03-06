@@ -16,6 +16,7 @@ let icon = document.querySelector(".image");
 
 let temps = [];
 let isConverted = false;
+const key = 28a2725815a90cde65f5bf49ed7f3587
 
 // using ES6 class syntax to create object
 
@@ -43,7 +44,21 @@ class Weather {
   // making uses of darksky API to get current forecast
 
   getCurrentForecast() {
-    
+    // show you API call url
+    // pass that secret key, latitude and longitude data with API url to get data.
+  // first get our latitude and longitude using navigator object
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(res => {
+      // send the those three value from here using string literal
+      // create another variable
+      fetch (`  https://api.darksky.net/forecast/${key}/${res.coords.latitude},${res.coords.longitude}`)
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch(err => console.log(err))  // 
+     })
+  } else {
+    alert("Sorry your browser does not support navigation. Please Update it.")
+     }
   }
 
 }
