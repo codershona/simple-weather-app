@@ -58,13 +58,20 @@ class Weather {
         `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${key}/${res.coords.latitude},${res.coords.longitude}`
       )
         .then(res => res.json())
-        .then(res => {console.log(res)
-          date.innerHTML += new Date().toDateString()
-          temp.innerHTML += res.currently.temparature
-          desc.innerHTML += res.currently.summary
-          hum.innerHTML += res.currently.humidity
-          pressure.innerHTML += res.currently.pressure
-          ozane.innerHTML += res.currently.ozane 
+        .then(res => {
+          console.log(res);
+          date.innerHTML += new Date().toDateString();
+          temp.innerHTML += res.currently.temparature;
+          desc.innerHTML += res.currently.summary;
+          hum.innerHTML += res.currently.humidity;
+          pressure.innerHTML += res.currently.pressure;
+          ozone.innerHTML += res.currently.ozone;
+          // adding some interaction
+          //show that icon  // download the weather icon css file and put it into your CSS directory
+          // also put the font file in the parent directory of the project folder
+          
+
+
         })
         .catch(err => console.log(err)); //check in the url
         // JSON data lets put them in our html filter
