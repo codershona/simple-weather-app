@@ -16,7 +16,7 @@ let icon = document.querySelector(".image");
 
 let temps = [];
 let isConverted = false;
-const key = 28a2725815a90cde65f5bf49ed7f3587
+const key = "585c007f38e1484a17a09a0c785e4c32";
 
 // using ES6 class syntax to create object
 
@@ -37,9 +37,8 @@ class Weather {
     fetch("https://geoip-db.com/json/")
     .then(res => res.json())
     .then(res => {
-      name.innerHTML += `${res.city}, ${res.state}`;
-
-    });
+    name.innerHTML += `${res.city}, ${res.state}`;
+      });
   }
   // making uses of darksky API to get current forecast
 
@@ -51,19 +50,26 @@ class Weather {
     navigator.geolocation.getCurrentPosition(res => {
       // send the those three value from here using string literal
       // create another variable
-      fetch (`  https://api.darksky.net/forecast/${key}/${res.coords.latitude},${res.coords.longitude}`)
+
+      // remember the format should be like this else it will return error
+      // We need to set a proxy server to get our JSON shouldComponentUpdate(nextProps, nextState) {
+        // this proxy server 'https://cors-anywhere.herokuapp.com/'
+      fetch (
+        `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${key}/${res.coords.latitude},${res.coords.longitude}`
+      )
         .then(res => res.json())
         .then(res => console.log(res))
-        .catch(err => console.log(err))  // 
-     })
+        .catch(err => console.log(err)); //
+     });
   } else {
-    alert("Sorry your browser does not support navigation. Please Update it.")
+    alert("Sorry your browser does not support navigation. Please Update it.");
      }
   }
 
 }
 
 
-// instatiate the class
-var start = new Weather();
-start.getLocationName();
+    // instatiate the class
+    var start = new Weather();
+    start.getLocationName();
+    start.getCurrentForecast();
