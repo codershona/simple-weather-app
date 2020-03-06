@@ -12,8 +12,59 @@
   </head>
   <body>
 
-   <h1>Hello weather</h1>
-  
+ <section class="heading">
+   <h2>Simple Weather App</h2>
+   <small><a href="https://darksky.net/poweredby/" target="_blank">Powered by</a></small>
+
+ </section>
+   <!-- <h1>Hello weather</h1> -->
+
+   <section class="main-card">
+  <!-- First i am creating a loader here -->
+  <div class="loader">
+     <div class="justify-content-center">
+        <div class="spinner-boarder" style="width: 5rem; height: 5rem;" role="status">
+          <span class="sr-only">Loading.....</span>
+        </div>
+     </div>
+  </div>
+
+  <div class="card p5">
+    <div class="image text-center- p-3 display-1">
+
+    </div>
+    <div class="card-body text-center">
+      <div>
+        <div class="card-title name">
+          <h2 class="card-title name">
+
+          </h2>
+          <small class="date"></small>
+          <p class="card-text temp display-4"></p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md col-sm">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item desc"></li>
+              <li class="list-group-item hum">Humidity: </li>
+            </ul>
+          </div>
+          <div class="col-md col-sm">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item pressure">Pressure: </li>
+              <li class="list-group-item ozone">Ozone: </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+   </section>
+
 
    <script src="js/app.js"></script>
   </body>
