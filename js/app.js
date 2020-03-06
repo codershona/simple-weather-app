@@ -8,7 +8,7 @@ let date = document.querySelector(".date");
 let temp = document.querySelector(".temp");
 let desc = document.querySelector(".desc");
 let hum = document.querySelector(".hum");
-let pres = document.querySelector(".pressure");
+let press = document.querySelector(".pressure");
 let ozon = document.querySelector(".ozone");
 let icons = document.querySelector(".image");
 
@@ -16,6 +16,7 @@ let icons = document.querySelector(".image");
 
 let temps = [];
 let isConverted = false;
+// let isLoading = false;
 const key = "585c007f38e1484a17a09a0c785e4c32";
 
 // using ES6 class syntax to create object
@@ -32,14 +33,15 @@ class Weather {
   // Using simple API to get the data...
   //  This API returns location details from our IP address
 
-  getLocationName() {
+  getLocation() {
     // using fetch API to get AJAX calls you can use XHP also
     fetch("https://geoip-db.com/json/")
     .then(res => res.json())
-    .then(res => {
-    name.innerHTML += `${res.city}, ${res.state}`;
+    .then(result => {
+     name.innerHTML += `${res.city}, ${res.state}`;
       });
   }
+
   // making uses of darksky API to get current forecast
 
   getCurrentForecast() {
@@ -47,7 +49,7 @@ class Weather {
     // pass that secret key, latitude and longitude data with API url to get data.
   // first get our latitude and longitude using navigator object
   if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(res => {
+  navigator.geolocation.getCurrentPosition(res => {
       // send the those three value from here using string literal
       // create another variable
 
@@ -78,7 +80,7 @@ class Weather {
           temps.push(Math.floor((temperature - 32) * 0.5555))
           desc.innerHTML += summary;
           hum.innerHTML += Math.round(humidity * 100) + "%";
-          press.innerHTML += pressure;
+          press.innerHTML += Math.round(pressure * 100) + "%";
           ozon.innerHTML += ozone;
           // adding some interaction
           //show that icon  // download the weather icon css file and put it into your CSS directory
@@ -95,8 +97,9 @@ class Weather {
      });
   } else {
     alert("Sorry your browser does not support navigation. Please Update it.");
-     }
+    }
   }
+
 
  getIcon(image, el) {
    // 1st arg- image- will take the icon value from the JSON
@@ -150,7 +153,7 @@ class Weather {
 
     // instatiate the class
     var start = new Weather();
-    start.getLocationName();
+    start.getLocation();
     start.getCurrentForecast();
 
 
