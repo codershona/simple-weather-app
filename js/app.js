@@ -62,7 +62,7 @@ class Weather {
           console.log(res);
 
           const {
-            temparature,
+            temperature,
             summary,
             humidity,
              pressure,
@@ -71,11 +71,13 @@ class Weather {
            } = res.currently;
           date.innerHTML += new Date().toDateString();
           temp.innerHTML += `${Math.floor(
-            temparature
+            temperature
           )}
           <i class="wi wi-fahrenheit"></i>`;
+          temps.push(Math.floor(temperature))
+          temps.push(Math.floor((temperature - 32) * 0.5555))
           desc.innerHTML += summary;
-          hum.innerHTML += Math.round(humidity) * 100 + "%";
+          hum.innerHTML += Math.round(humidity * 100) + "%";
           press.innerHTML += pressure;
           ozon.innerHTML += ozone;
           // adding some interaction
@@ -133,10 +135,28 @@ class Weather {
   el.innerHTML = "";
     }
    }
-}
+  }
+
+  const convert = () => {
+    if(!isConverted){
+      temp.innerHTML = temps[1] + ` <i class="wi wi-celcius"></i>`;
+      isConverted = !isConverted;
+    } else {
+      temp.innerHTML = temps[0] + ` <i class="wi wi-fahrenheit"></i>`;
+      isConverted = !isConverted;
+    }
+  };
 
 
     // instatiate the class
     var start = new Weather();
     start.getLocationName();
     start.getCurrentForecast();
+
+
+    setTimeout(() => {
+      document.querySelector(".loader").style.display = "none"
+        document.querySelector(".card").classList.add("animated", "fadeIn")
+          document.querySelector(".card").style.display = "block"
+
+    },2000)

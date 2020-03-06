@@ -11,11 +11,11 @@ background: linear-gradient(to right, #155799, #159957); /* W3C, IE 10+/ Edge, F
 }
 
 .name, .desc, .pressure, .ozone {
-
+ font-family: 'Arimo', sans-serif;
 }
 
 .desc {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
 
 }
@@ -27,7 +27,7 @@ background: linear-gradient(to right, #155799, #159957); /* W3C, IE 10+/ Edge, F
 }
 
 .card {
-  /* display: none; */
+  display: none;
   margin: 0 auto;
   width: 30rem;
   padding-bottom: 10px;
