@@ -69,10 +69,12 @@ class Weather {
           // adding some interaction
           //show that icon  // download the weather icon css file and put it into your CSS directory
           // also put the font file in the parent directory of the project folder
-          
+          // create another method which will dynamically get
+          // the icon for our weather condition
 
-
-        })
+  // now call that method here and see the magic
+    this.getIcon(res.currently.icon, icon);
+     })
         .catch(err => console.log(err)); //check in the url
         // JSON data lets put them in our html filter
 
@@ -82,6 +84,43 @@ class Weather {
      }
   }
 
+ getIcon(image, el) {
+   // 1st arg- image- will take the icon value from the JSON
+   // 2nd arg- el- in which element we have to put the icon
+   if (image === 'clear-day'){
+     el.innerHTML += `<i class='wi wi-day-sunny'></i>`;
+     // make if else ladder for each weather conditions
+     //
+   } else if  (image === 'clear-night'){
+     el.innerHTML += `<i class='wi wi-night-clear'></i>`;
+
+ } else if  (image === 'rain'){
+   el.innerHTML += `<i class='wi wi-rain'></i>`;
+
+} else if  (image === 'snow'){
+  el.innerHTML += `<i class='wi wi-snow'></i>`;
+
+} else if  (image === 'sleet'){
+  el.innerHTML += `<i class='wi wi-sleet'></i>`;
+
+} else if  (image === 'wind'){
+  el.innerHTML += `<i class='wi wi-windy'></i>`;
+
+} else if  (image === 'fog'){
+  el.innerHTML += `<i class='wi wi-fog'></i>`;
+
+} else if  (image === 'cloudy'){
+  el.innerHTML += `<i class='wi wi-cloudy'></i>`;
+
+} else if  (image === 'partly-cloudy-day'){
+  el.innerHTML += `<i class='wi wi-day-cloudy-gusts'></i>`;
+
+} else if  (image === 'partly-cloudy-night'){
+  el.innerHTML += `<i class='wi wi-night-alt-cloudy'></i>`;
+} else {
+  el.innerHTML = "";
+    }
+   }
 }
 
 
