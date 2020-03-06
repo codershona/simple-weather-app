@@ -1,0 +1,59 @@
+body {
+  background: #159957;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.heading {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.name, .desc, .pressure, .ozone {
+ font-family: 'Arimo', sans-serif;
+}
+
+.desc {
+  font-size: 1.3em;
+  font-weight: bold;
+
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+}
+
+.card {
+  display: none;
+  margin: 0 auto;
+  width: 30rem;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.temp {
+  cursor: pointer;
+
+}
+
+ul li {
+  text-align: center;
+}
+
+/* for responsive screens */
+
+
+@media (max-width:500px) {
+  .card {
+    width: 18rem;
+  }
+}
+
+@media (max-width:325px) {
+  .card {
+    width: 16rem;
+  }
+}
