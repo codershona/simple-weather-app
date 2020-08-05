@@ -4,8 +4,6 @@
 #### Project Can be found in here :
  **[Live version](https://rawcdn.githack.com/codershona/simple-weather-app/e218b9053f096a93ed6e4229f0126345171e388b/index.html)**
 
-### Builded by Falguni Islam(Software developer)
-
 ### Usage :
 ```
      - Vanilla JavaScript ;
